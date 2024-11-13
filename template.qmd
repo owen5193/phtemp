@@ -59,13 +59,13 @@ library(plotly)
 
 # Results
 
-{{< lipsum 1 >}} see @tbl-mtcars.
+{{< lipsum 1 >}} see @tbl-mtcars from the [mtcars dataset](https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/mtcars).
 
 ```{r table}
 #| label: tbl-mtcars
 #| tbl-cap: "Top of mtcars data"
 
-head(mtcars) %>% 
+head(mtcars, n = 10) %>% 
   gt()
 
 ```

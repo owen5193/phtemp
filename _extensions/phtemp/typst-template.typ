@@ -63,12 +63,13 @@
   
   // Links should be purple.
   show link: set text(rgb("#7fdbff"))
+  show link: underline
   
   // Configure lists and links.
   set list(indent: 24pt, body-indent: 5pt, marker: ([•], [--]))
 
   if title != none {
-    align(left)[#pad(top: 2em)[
+    align(left)[#pad(top: 2em, bottom: 1em)[
       #text(weight: 500, size: 2em)[#title]
     ]]
   }
@@ -107,10 +108,15 @@
     
 
   if date != none {
-   align(left)[#pad(top: 2em)[
+   align(left)[#pad(top: 2em, bottom: 1em)[
       #text(style: "italic", weight: 100, fill: luma(0))[#date]
     ]]
   }
+  
+  line(
+  length: 100%,
+  stroke: 2pt + rgb("#0F4985"),
+)
 
   if abstract != none {
     block(inset: 2em)[
@@ -146,6 +152,11 @@
     columns(cols, doc)
   }
 }
+
+#show table.cell.where(y: 0): strong
+#show table.cell.where(y: 0): strong
+
+#set table.cell(breakable: false)
 
 #set table(
   inset: 6pt,
