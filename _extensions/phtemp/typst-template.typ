@@ -13,6 +13,7 @@
 
 #let article(
   title: none,
+  subtitle: none,
   authors: none,
   date: none,
   abstract: none,
@@ -36,6 +37,9 @@
     margin: (top:3cm, bottom: 2cm, right: 2cm),
     numbering: none,
     number-align: right,
+    header: (grid(columns: (1fr, 1fr),
+    align(left)[#pad(left: -2.4cm,image("images/logo.png", width: 16%))],
+    align(right)[#pad(right: -2cm, top: 0.5cm, image("images/nhsh.png", width: 20%))])),
    background: place(right + top, rect(
       fill: rgb("#6e599a"),
       height: 2.5cm,
@@ -50,9 +54,15 @@
   set heading(numbering: sectionnumbering)
 
   if title != none {
-    align(center)[#block(inset: 2em)[
-      #text(weight: "bold", size: 1.5em)[#title]
+    align(left)[#block(inset: 0em)[
+      #text(weight: "bold", size: 2em)[#title]
     ]]
+  }
+  
+      if subtitle != none {
+    align(left)[
+      #text(weight: "medium", size: 1.5em)[#subtitle]
+    ]
   }
 
   if authors != none {
@@ -62,7 +72,7 @@
       columns: (1fr,) * ncols,
       row-gutter: 1.5em,
       ..authors.map(author =>
-          align(center)[
+          align(left)[
             #author.name \
             #author.affiliation \
             #author.email
@@ -72,7 +82,7 @@
   }
 
   if date != none {
-    align(center)[#block(inset: 1em)[
+    align(left)[#block(inset: 0em)[
       #date
     ]]
   }

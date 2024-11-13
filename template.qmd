@@ -1,9 +1,16 @@
 ---
 title: "Public Health short report template"
-author: "Owen McDonald"
+subtitle: "Using Typst"
+author: 
+  - name: "Owen McDonald"
+    email: o.mcdonald@nhs.scot
+    affiliations:
+      - name: NHS Highland
 mainfont: "Arial"
 date: today
+date-format: "Do MMMM YYYY"
 toc: true
+citeproc: true
 format:
   phtemp-typst: default
 ---
