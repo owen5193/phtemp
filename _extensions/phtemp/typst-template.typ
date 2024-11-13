@@ -32,16 +32,16 @@
   toc_indent: 1.5em,
   doc,
 ) = {
-  set page(
+ set page(
     paper: paper,
     margin: (top:3cm, bottom: 2cm, right: 2cm),
     numbering: none,
     number-align: right,
     header: (grid(columns: (1fr, 1fr),
-    align(left)[#pad(left: -2.4cm,image("images/logo.png", width: 16%))],
-    align(right)[#pad(right: -2cm, top: 0.5cm, image("images/nhsh.png", width: 20%))])),
+    align(left)[#pad(left: -2.2cm, top: -0.2cm, image("images/ph-logo.png", width: 16%))],
+    align(right)[#pad(right: -2cm, top: 0.5cm, image("images/nhsh-blue.png", width: 20%))])),
    background: place(right + top, rect(
-      fill: rgb("#6e599a"),
+      fill: rgb("#0F4985"),
       height: 2.5cm,
       width: 100%,
     )
@@ -52,18 +52,29 @@
            font: font,
            size: fontsize)
   set heading(numbering: sectionnumbering)
+  
+    // Configure headings.
+  show heading.where(level: 1): set block(below: 0.8em)
+  show heading.where(level: 2): set block(above: 0.5cm, below: 0.5cm)
+  
+  // Links should be purple.
+  show link: set text(rgb("#7fdbff"))
+  
+  linebreak()
 
   if title != none {
     align(left)[#block(inset: 0em)[
-      #text(weight: "bold", size: 2em)[#title]
+      #text(weight: 500, size: 2em)[#title]
     ]]
   }
   
       if subtitle != none {
     align(left)[
-      #text(weight: "medium", size: 1.5em)[#subtitle]
+      #text(weight: 400, size: 1.5em, style: "normal")[#subtitle]
     ]
   }
+  
+  linebreak()
 
   if authors != none {
     let count = authors.len()
@@ -80,10 +91,12 @@
       )
     )
   }
+  
+  linebreak()
 
   if date != none {
-    align(left)[#block(inset: 0em)[
-      #date
+   align(left)[#block(inset: 0em)[
+      #text(style: "italic", weight: 100, fill: luma(0))[#date]
     ]]
   }
 
