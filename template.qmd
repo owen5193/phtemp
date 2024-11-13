@@ -6,7 +6,14 @@ author:
     email: o.mcdonald@nhs.scot
     affiliations:
       - name: NHS Highland
+execute:
+  enabled: true
+  warning: false
+  error: false
+  echo: false
 mainfont: "Arial"
+fig-cap-location: top
+tbl-cap-location: top
 date: today
 date-format: "Do MMMM YYYY"
 citeproc: true
@@ -17,15 +24,56 @@ format:
   phtemp-typst: default
 ---
 
-## Introduction
+```{r packages}
 
-*TODO* Create an example file that demonstrates the formatting and features of your format.
+library(tidyverse)
+library(readxl)
+library(janitor)
+library(gt)
+library(plotly)
 
-## More Information
+```
 
-You can learn more about creating custom Typst templates here: 
-
-<https://quarto.org/docs/prerelease/1.4/typst.html#custom-formats>
+```{r big-data}
 
 
 
+```
+
+
+# Introduction
+
+{{< lipsum 1 >}}[@RN1227]
+
+# Results
+
+{{< lipsum 1 >}} see @tbl-mtcars.
+
+```{r table}
+#| label: tbl-mtcars
+#| tbl-cap: "Top of mtcars data"
+
+head(mtcars) %>% 
+  gt()
+
+```
+
+{{< lipsum 1 >}} see @fig-mtcars.
+
+```{r plot}
+#| label: fig-mtcars
+#| fig-cap: "MT cars speed to weight"
+
+mtcars %>% 
+  ggplot(aes(x = wt, y = qsec)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  theme_minimal()
+
+```
+
+
+# Reference
+
+::: {#refs}
+:::
