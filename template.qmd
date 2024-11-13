@@ -9,9 +9,10 @@ author:
 mainfont: "Arial"
 date: today
 date-format: "Do MMMM YYYY"
+citeproc: true
+bibliography: "references/project-refs.bibtex"
 csl: "styles/vanc-ss.csl"
 toc: true
-citeproc: true
 format:
   phtemp-typst: default
 ---
