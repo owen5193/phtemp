@@ -1,11 +1,15 @@
 ---
 title: "Public Health short report template"
 subtitle: "Using Typst"
+hero-image: 
+  path: "images/map.jpg"
+  caption: "ADP logo"
 author: 
-  - name: "Owen McDonald"
+  - name: "Dr Owen McDonald ST4"
     email: o.mcdonald@nhs.scot
     affiliations:
-      - name: NHS Highland
+      - name: "NHS Highland Public Health"
+        address: Assynt House
 execute:
   enabled: true
   warning: false
@@ -44,6 +48,14 @@ library(plotly)
 # Introduction
 
 {{< lipsum 1 >}}[@RN1227]
+
+# Methods
+
+* Item 1
+  + sub-item 1
+  + sub-item 2
+* Item 2
+  + sub-item 1
 
 # Results
 

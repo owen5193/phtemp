@@ -16,6 +16,7 @@
   subtitle: none,
   authors: none,
   date: none,
+  hero-image: none,
   abstract: none,
   abstract-title: none,
   cols: 1,
@@ -54,27 +55,36 @@
   set heading(numbering: sectionnumbering)
   
     // Configure headings.
-  show heading.where(level: 1): set block(below: 0.8em)
-  show heading.where(level: 2): set block(above: 0.5cm, below: 0.5cm)
+  show heading.where(level: 1): set block(below: 1em, above: 1em)
+  show heading: set text(rgb("#0F4985"))
+  show heading.where(level: 2): set block(above: 0.5cm, below: 1cm)
   
   // Links should be purple.
   show link: set text(rgb("#7fdbff"))
   
-  linebreak()
+  // Configure lists and links.
+  set list(indent: 24pt, body-indent: 5pt, marker: ([•], [--]))
 
   if title != none {
-    align(left)[#block(inset: 0em)[
+    align(left)[#pad(top: 2em)[
       #text(weight: 500, size: 2em)[#title]
     ]]
   }
   
       if subtitle != none {
-    align(left)[
-      #text(weight: 400, size: 1.5em, style: "normal")[#subtitle]
-    ]
+    align(left)[#pad(bottom: 2em)[#text(weight: 400, size: 1.5em, style: "normal")[#subtitle]]]
   }
   
-  linebreak()
+// Hero image.
+    style(styles => {
+      if hero-image == none {
+        return
+      }
+
+      let img = image(hero-image.path, width: 10cm)
+
+      align(center)[#img]
+    })
 
   if authors != none {
     let count = authors.len()
@@ -83,19 +93,19 @@
       columns: (1fr,) * ncols,
       row-gutter: 1.5em,
       ..authors.map(author =>
-          align(left)[
+          align(left)[#pad(top: 4em)[
             #author.name \
             #author.affiliation \
             #author.email
-          ]
+          ]]
       )
     )
   }
   
-  linebreak()
+    
 
   if date != none {
-   align(left)[#block(inset: 0em)[
+   align(left)[#pad(top: 2em)[
       #text(style: "italic", weight: 100, fill: luma(0))[#date]
     ]]
   }

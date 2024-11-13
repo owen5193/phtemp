@@ -16,6 +16,12 @@
 $if(title)$
   title: [$title$],
 $endif$
+$if(hero-image)$
+  hero-image: (
+    path: "$hero-image.path$",
+    caption: [$hero-image.caption$]
+  ), 
+$endif$
 $if(subtitle)$
   subtitle: [$subtitle$],
 $endif$
