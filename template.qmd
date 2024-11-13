@@ -9,6 +9,7 @@ author:
 mainfont: "Arial"
 date: today
 date-format: "Do MMMM YYYY"
+csl: "styles/vanc-ss.csl"
 toc: true
 citeproc: true
 format:
