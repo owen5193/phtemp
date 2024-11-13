@@ -84,8 +84,8 @@ mtcars %>%
 
 ```
 
-
-# Reference
+{{< pagebreak >}}
+# References
 
 ::: {#refs}
 :::
