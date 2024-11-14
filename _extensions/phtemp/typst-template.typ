@@ -133,6 +133,12 @@
       toc_title
     }
     block(above: 0em, below: 2em)[
+    #show outline.entry.where(
+  level: 1
+): it => {
+  v(12pt, weak: true)
+  strong(it)
+}
     #outline(
       title: toc_title,
       depth: toc_depth,
@@ -151,6 +157,8 @@
   ]
 )
 
+ counter(page).update(1)
+
   if cols == 1 {
     doc
   } else {
@@ -158,10 +166,9 @@
   }
 }
 
-#show table.cell.where(y: 0): strong
-#show table.cell.where(y: 0): strong
+//#show table.cell.where(y: 0): strong
+//#show table.cell.where(x: 0): strong
 
-#set table.cell(breakable: false)
 
 #set table(
   inset: 6pt,
