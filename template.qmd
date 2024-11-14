@@ -3,7 +3,6 @@ title: "Public Health short report template"
 subtitle: "Using Typst"
 hero-image: 
   path: "images/map.jpg"
-  caption: "ADP logo"
 author: 
   - name: "Dr Owen McDonald ST4"
     email: o.mcdonald@nhs.scot
