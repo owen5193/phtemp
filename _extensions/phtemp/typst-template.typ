@@ -136,13 +136,14 @@
     #show outline.entry.where(
   level: 1
 ): it => {
-  v(12pt, weak: true)
+  v(11pt, weak: true)
   strong(it)
 }
     #outline(
       title: toc_title,
       depth: toc_depth,
-      indent: toc_indent
+      indent: toc_indent//,
+      //fill: box(width: 1fr, repeat[-])
     );
     ]
   }
