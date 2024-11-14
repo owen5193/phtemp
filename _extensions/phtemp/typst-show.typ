@@ -18,8 +18,7 @@ $if(title)$
 $endif$
 $if(hero-image)$
   hero-image: (
-    path: "$hero-image.path$",
-    caption: [$hero-image.caption$]
+    path: "$hero-image.path$"
   ), 
 $endif$
 $if(subtitle)$
