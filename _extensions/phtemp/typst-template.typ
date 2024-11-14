@@ -55,11 +55,11 @@
   set heading(numbering: sectionnumbering)
   
     // Configure headings.
-  show heading.where(level: 1): set block(below: 1em, above: 1em)
+  show heading.where(level: 1): set block(below: 0.5cm, above: 0.5cm)
   show heading: set text(rgb("#0F4985"))
-  show heading.where(level: 2): set block(above: 0.5cm, below: 1cm)
-  show heading.where(level: 3): set block(above: 0.5cm, below: 1cm)
-  show heading.where(level: 4): set block(above: 0.5cm, below: 1cm)
+  show heading.where(level: 2): set block(above: 0.5cm, below: 0.5cm)
+  show heading.where(level: 3): set block(above: 0.5cm, below: 0.5cm)
+  show heading.where(level: 4): set block(above: 0.5cm, below: 0.5cm)
   
   // Links should be purple.
   show link: set text(rgb("#7fdbff"))
