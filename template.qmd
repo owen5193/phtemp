@@ -23,6 +23,8 @@ citeproc: true
 bibliography: "references/project-refs.bibtex"
 csl: "styles/vanc-ss.csl"
 toc: true
+toc-depth: 3
+toc-title: Contents
 format:
   phtemp-typst: default
 ---
@@ -33,7 +35,6 @@ library(tidyverse)
 library(readxl)
 library(janitor)
 library(gt)
-library(plotly)
 
 ```
 
@@ -58,6 +59,8 @@ library(plotly)
 
 # Results
 
+## Table
+
 {{< lipsum 1 >}} see @tbl-mtcars from the [mtcars dataset](https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/mtcars).
 
 ```{r table}
@@ -68,6 +71,8 @@ head(mtcars, n = 10) %>%
   gt()
 
 ```
+
+## Plot
 
 {{< lipsum 1 >}} see @fig-mtcars.
 
@@ -84,6 +89,7 @@ mtcars %>%
 ```
 
 {{< pagebreak >}}
+
 # References
 
 ::: {#refs}
