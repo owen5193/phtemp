@@ -143,8 +143,13 @@
   
   pagebreak()
   
-  set page(numbering: "1")
-  counter(page).update(1)
+ set page(
+  footer: [
+    #text(style: "italic", weight: 100, fill: luma(0))[#title]
+    #h(1fr)
+    #counter(page).display()
+  ]
+)
 
   if cols == 1 {
     doc
