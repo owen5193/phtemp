@@ -51,7 +51,8 @@
   set text(lang: lang,
            region: region,
            font: font,
-           size: fontsize)
+           size: fontsize,
+           hyphenate: false)
   set heading(numbering: sectionnumbering)
   
     // Configure headings.
@@ -90,6 +91,9 @@
     })
 
   if authors != none {
+  
+  
+  
     let count = authors.len()
     let ncols = calc.min(count, 3)
     grid(
@@ -97,6 +101,14 @@
       row-gutter: 1.5em,
       ..authors.map(author =>
           align(left)[#pad(top: 4em)[
+
+#let a = "mailto:"
+
+#let b = "\""
+
+#let c = [#a#author.email#b]
+
+
             #author.name \
             #author.affiliation \
             #author.email
@@ -104,6 +116,8 @@
       )
     )
   }
+  
+  
   
     
 
@@ -124,9 +138,11 @@
     ]
   }
   
-  pagebreak()
+  
 
   if toc {
+  
+  pagebreak()
     let title = if toc_title == none {
       auto
     } else {
@@ -146,15 +162,16 @@
       //fill: box(width: 1fr, repeat[-])
     );
     ]
+    pagebreak()
   }
   
-  pagebreak()
+  
   
  set page(
   footer: [
     #text(style: "italic", weight: 100, fill: luma(0))[#title]
     #h(1fr)
-    #counter(page).display()
+    #context counter(page).display()
   ]
 )
 
@@ -167,8 +184,8 @@
   }
 }
 
-//#show table.cell.where(y: 0): strong
-//#show table.cell.where(x: 0): strong
+#show table.cell.where(y: 0): strong
+#show table.cell.where(x: 0): strong
 
 
 #set table(

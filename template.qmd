@@ -8,7 +8,7 @@ author:
     email: o.mcdonald@nhs.scot
     affiliations:
       - name: "NHS Highland Public Health"
-        address: Assynt House
+        address: "Assynt House"
 execute:
   enabled: true
   warning: false
