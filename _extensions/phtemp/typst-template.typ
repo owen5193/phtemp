@@ -69,13 +69,13 @@
   set list(indent: 24pt, body-indent: 5pt, marker: ([•], [--]))
 
   if title != none {
-    align(left)[#pad(top: 2em, bottom: 1em)[
+    align(left + top)[#pad(top: 2em, bottom: 1em)[
       #text(weight: 500, size: 2em)[#title]
     ]]
   }
   
       if subtitle != none {
-    align(left)[#pad(bottom: 2em)[#text(weight: 400, size: 1.5em, style: "normal")[#subtitle]]]
+    align(left + top)[#pad(bottom: 2em)[#text(weight: 400, size: 1.5em, style: "normal")[#subtitle]]]
   }
   
 // Hero image.
@@ -86,29 +86,29 @@
 
       let img = image(hero-image.path, width: 10cm)
 
-      align(center)[#img]
+      align(horizon + center)[#img]
     })
 
   if authors != none {
     let count = authors.len()
     let ncols = calc.min(count, 3)
-    grid(
+    align(bottom + left)[#grid(
       columns: (1fr,) * ncols,
       row-gutter: 1.5em,
       ..authors.map(author =>
-          align(left)[#pad(top: 4em)[
+          align(left)[
             #author.name \
             #author.affiliation \
             #author.email
-          ]]
+          ]
       )
-    )
+    )]
   }
   
     
 
   if date != none {
-   align(left)[#pad(top: 2em, bottom: 1em)[
+   align(left + bottom)[#pad(top: 1em, bottom: 1em)[
       #text(style: "italic", weight: 100, fill: luma(0))[#date]
     ]]
   }
@@ -124,9 +124,11 @@
     ]
   }
   
-  pagebreak()
+
 
   if toc {
+  
+    pagebreak()
     let title = if toc_title == none {
       auto
     } else {
