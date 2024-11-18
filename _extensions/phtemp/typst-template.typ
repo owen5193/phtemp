@@ -71,12 +71,12 @@
 
   if title != none {
     align(left + top)[#pad(top: 2em, bottom: 1em)[
-      #text(weight: 500, size: 2em)[#title]
+      #text(weight: 600, size: 2em)[#title]
     ]]
   }
   
       if subtitle != none {
-    align(left + top)[#pad(bottom: 2em)[#text(weight: 400, size: 1.5em, style: "normal")[#subtitle]]]
+    align(left + top)[#pad(bottom: 2em)[#text(weight: 500, size: 1.75em, style: "normal", fill: luma(30))[#subtitle]]]
   }
   
 // Hero image.
@@ -165,11 +165,17 @@
   footer: [
     #text(style: "italic", weight: 100, fill: luma(0))[#title]
     #h(1fr)
-    #context counter(page).display()
+    //#context
+    #counter(page).display()
   ]
 )
 
  counter(page).update(1)
+ 
+ set table(
+  inset: 6pt,
+  stroke: none
+)
 
   if cols == 1 {
     doc
@@ -178,11 +184,8 @@
   }
 }
 
-#show table.cell.where(y: 0): strong
-#show table.cell.where(x: 0): strong
+//#show table.cell.where(y: 0): strong
+//#show table.cell.where(x: 0): strong
 
 
-#set table(
-  inset: 6pt,
-  stroke: none
-)
+
