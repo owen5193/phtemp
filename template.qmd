@@ -2,13 +2,13 @@
 title: "Public Health short report template"
 subtitle: "Using Typst"
 hero-image: 
-   path: "images/map.jpg"
+   path: "images/borders-map.png"
 author: 
-  - name: "Dr Owen McDonald ST4"
-    email: o.mcdonald@nhs.scot
+  - name: "Dr Owen McDonald Acting CPHM"
+    email: owen.mcdonald2@nhs.scot
     affiliations:
-      - name: "NHS Highland Public Health"
-        address: "Assynt House"
+      - name: "NHS Borders Public Health"
+        address: "Borders General Hospital"
 execute:
   enabled: true
   warning: false
@@ -45,11 +45,11 @@ library(gt)
 ```
 
 
-# Introduction
+# Situation
 
 {{< lipsum 1 >}}[@RN1227]
 
-# Methods
+# Background
 
 * Item 1
   + sub-item 1
@@ -57,7 +57,7 @@ library(gt)
 * Item 2
   + sub-item 1
 
-# Results
+# Assessment
 
 ## Table
 
@@ -87,6 +87,10 @@ mtcars %>%
   theme_minimal()
 
 ```
+
+# Recommendation
+
+{{< lipsum 1 >}}
 
 {{< pagebreak >}}
 

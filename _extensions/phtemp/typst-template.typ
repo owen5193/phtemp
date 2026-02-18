@@ -47,10 +47,11 @@
     numbering: none,
     number-align: right,
     header: (grid(columns: (1fr, 1fr),
-    align(left)[#pad(left: -2.2cm, top: -0.2cm, image("images/ph-logo.png", width: 16%))],
-    align(right)[#pad(right: -2cm, top: 0.5cm, image("images/nhsh-blue.png", width: 20%))])),
+    // align(left)[#pad(left: -2.2cm, top: -0.2cm, image("images/ph-logo.png", width: 16%))],
+    h(1fr),
+    align(right)[#pad(right: -1.25cm, top: 0.5cm, image("images/nhsb-logo.png", width: 20%))])),
    background: place(right + top, rect(
-      fill: rgb("#0F4985"),
+      fill: rgb("#173981"),
       height: 2.5cm,
       width: 100%,
     )
@@ -65,13 +66,13 @@
   
       // Configure headings.
   show heading.where(level: 1): set block(below: 0.5cm, above: 0.5cm)
-  show heading.where(level: 1): set text(rgb("#0F4985"))
+  show heading.where(level: 1): set text(rgb("#173981"))
   show heading.where(level: 2): set block(above: 0.5cm, below: 0.5cm)
   show heading.where(level: 3): set block(above: 0.5cm, below: 0.5cm)
   show heading.where(level: 4): set block(above: 0.5cm, below: 0.5cm)
   
     // Links should be blue.
-  show link: set text(rgb("#0F4985"))
+  show link: set text(rgb("#173981"))
   show link: underline
   
   // Configure lists and links.
@@ -101,7 +102,7 @@
   
 if hero-image != none {
       
-      let img = image(hero-image.path, width: 10cm)
+      let img = image(hero-image.path, width: 15cm)
 
       align(horizon + center)[#img]
         
@@ -147,7 +148,7 @@ if authors != none {
   
   line(
   length: 100%,
-  stroke: 2pt + rgb("#0F4985"),
+  stroke: 2pt + rgb("#173981"),
 )
 
   if abstract != none {
