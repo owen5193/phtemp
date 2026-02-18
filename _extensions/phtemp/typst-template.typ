@@ -26,14 +26,22 @@
   region: "US",
   font: (),
   fontsize: 11pt,
+  title-size: 2em,
+  subtitle-size: 1.75em,
+  heading-family: "Arial",
+  heading-weight: 600,
+  heading-style: "normal",
+  heading-color: black,
+  heading-line-height: 0.65em,
   sectionnumbering: none,
+  pagenumbering: "1",
   toc: false,
   toc_title: none,
   toc_depth: none,
   toc_indent: 1.5em,
   doc,
 ) = {
- set page(
+  set page(
     paper: paper,
     margin: (top:3cm, bottom: 2cm, right: 2cm),
     numbering: none,
@@ -46,51 +54,60 @@
       height: 2.5cm,
       width: 100%,
     )
-  ))
+  )
+  )
   set par(justify: true)
   set text(lang: lang,
            region: region,
            font: font,
-           size: fontsize,
-           hyphenate: false)
+           size: fontsize)
   set heading(numbering: sectionnumbering)
   
-    // Configure headings.
+      // Configure headings.
   show heading.where(level: 1): set block(below: 0.5cm, above: 0.5cm)
   show heading.where(level: 1): set text(rgb("#0F4985"))
   show heading.where(level: 2): set block(above: 0.5cm, below: 0.5cm)
   show heading.where(level: 3): set block(above: 0.5cm, below: 0.5cm)
   show heading.where(level: 4): set block(above: 0.5cm, below: 0.5cm)
   
-  // Links should be blue.
+    // Links should be blue.
   show link: set text(rgb("#0F4985"))
   show link: underline
   
   // Configure lists and links.
   set list(indent: 24pt, body-indent: 5pt, marker: ([•], [--]))
-
+  
   if title != none {
     align(left + top)[#pad(top: 2em, bottom: 1em)[
-      #text(weight: 600, size: 2em)[#title]
+      #set par(leading: heading-line-height)
+      #if (heading-family != none or heading-weight != "bold" or heading-style != "normal"
+           or heading-color != black) {
+        set text(font: "Arial", weight: heading-weight, style: heading-style, fill: heading-color)
+        text(size: title-size)[#title]
+        if subtitle != none {
+          parbreak()
+          text(size: subtitle-size, weight: 500, fill: luma(30))[#subtitle]
+        }
+      } else {
+        text(weight: "bold", size: title-size)[#title]
+        if subtitle != none {
+          parbreak()
+          text(weight: "bold", size: subtitle-size)[#subtitle]
+        }
+      }
     ]]
   }
   
-      if subtitle != none {
-    align(left + top)[#pad(bottom: 2em)[#text(weight: 500, size: 1.75em, style: "normal", fill: luma(30))[#subtitle]]]
-  }
   
-// Hero image.
-    style(styles => {
-      if hero-image == none {
-        return
-      }
-
+if hero-image != none {
+      
       let img = image(hero-image.path, width: 10cm)
 
       align(horizon + center)[#img]
-    })
+        
+      }
 
-  if authors != none {
+if authors != none {
   
   
   
@@ -109,10 +126,18 @@
       )
     )]
   }
+
   
-  
-  
-    
+  // Hero image. Broken
+   // style(styles => {
+      //if hero-image == none {
+       // return
+     // }
+
+     // let img = image(hero-image.path, width: 10cm)
+
+     // align(horizon + center)[#img]
+   // })
 
   if date != none {
    align(left + bottom)[#pad(top: 1em, bottom: 1em)[
@@ -130,10 +155,8 @@
     #text(weight: "semibold")[#abstract-title] #h(1em) #abstract
     ]
   }
-  
 
-
- pagebreak()
+pagebreak()
   if toc != none {
 
 
@@ -159,23 +182,22 @@
     pagebreak()
   }
   
-  
-  
  set page(
   footer: [
     #text(style: "italic", weight: 100, fill: luma(0))[#title]
     #h(1fr)
-    //#context
-    #counter(page).display()
+    #context counter(page).display()
   ]
-)
-
- counter(page).update(1)
+)  
+  
+counter(page).update(1)
  
  set table(
   inset: 6pt,
   stroke: none
 )
+
+  
 
   if cols == 1 {
     doc
@@ -183,9 +205,3 @@
     columns(cols, doc)
   }
 }
-
-//#show table.cell.where(y: 0): strong
-//#show table.cell.where(x: 0): strong
-
-
-

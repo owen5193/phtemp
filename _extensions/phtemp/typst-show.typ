@@ -1,3 +1,4 @@
+
 // Typst custom formats typically consist of a 'typst-template.typ' (which is
 // the source code for a typst template) and a 'typst-show.typ' which calls the
 // template's function (forwarding Pandoc metadata values as required)
@@ -11,7 +12,6 @@
 // documentation on creating typst templates here and some examples here:
 //   - https://typst.app/docs/tutorial/making-a-template/
 //   - https://github.com/typst/templates
-
 #show: doc => article(
 $if(title)$
   title: [$title$],
