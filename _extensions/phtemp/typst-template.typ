@@ -43,7 +43,7 @@
 ) = {
   set page(
     paper: paper,
-    margin: (top:3cm, bottom: 2cm, right: 2cm),
+    margin: (top:3cm, bottom: 2cm, right: 2cm, left: 2cm),
     numbering: none,
     number-align: right,
     header: (grid(columns: (1fr, 1fr),
